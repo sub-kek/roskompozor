@@ -88,7 +88,7 @@ NFQWS_UDP_PKT_IN=0
 # use <HOSTLIST> and <HOSTLIST_NOAUTO> placeholders to engage standard hostlists and autohostlist in ipset dir
 # hostlist markers are replaced to empty string if MODE_FILTER does not satisfy
 # <HOSTLIST_NOAUTO> appends ipset/zapret-hosts-auto.txt as normal list
-NFQWS_OPT="--filter-tcp=80,443 --dpi-desync-any-protocol --dpi-desync=fake,multisplit --dpi-desync-autottl=1:1-8 --dpi-desync-fooling=badsum,md5sig --dpi-desync-repeats=8 --dpi-desync-fake-tls=/opt/zapret/files/fake/tls_clienthello_sberbank_ru.bin <HOSTLIST> --new --filter-udp=443,50000-65535 --dpi-desync-any-protocol --dpi-desync=fake --dpi-desync-fooling=badseq --dpi-desync-repeats=8 --dpi-desync-autottl=1:1-8 <HOSTLIST>"
+NFQWS_OPT="--filter-tcp=80,443 --dpi-desync-any-protocol --dpi-desync=fake,tamper --dpi-desync-autottl=1:1-8 --dpi-desync-fooling=md5sig --dpi-desync-repeats=4 <HOSTLIST> --new --filter-udp=443,50000-65535 --dpi-desync-any-protocol --dpi-desync=fake --dpi-desync-repeats=4 <HOSTLIST>"
 
 # none,ipset,hostlist,autohostlist
 MODE_FILTER=autohostlist
