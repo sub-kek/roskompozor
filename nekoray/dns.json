@@ -1,0 +1,30 @@
+{
+  "servers": [
+    {
+      "tag": "cloudflare-doh",
+      "address": "https://1.1.1.1/dns-query",
+      "detour": "proxy"
+    },
+    {
+      "tag": "direct",
+      "address": "local",
+      "detour": "direct"
+    },
+    {
+      "tag": "block",
+      "address": "rcode://success"
+    }
+  ],
+  "rules": [
+    {
+        "geosite": "private",
+        "server": "direct"
+    },
+    {
+        "domain": "ru",
+        "server": "direct"
+    }
+  ],
+  "independent_cache": true,
+  "final": "cloudflare-doh"
+}

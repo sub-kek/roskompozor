@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "geoip": "private",
+      "outbound": "direct"
+    },
+    {
+      "geosite": "private",
+      "outbound": "direct"
+    },
+    {
+      "domain_suffix": "ru",
+      "outbound": "direct"
+    }
+  ]
+}
