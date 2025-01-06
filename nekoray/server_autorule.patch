@@ -1,0 +1,30 @@
+diff --git a/db/ConfigBuilder.cpp b/db/ConfigBuilder.cpp
+index 379fff7..55fb50a 100644
+--- a/db/ConfigBuilder.cpp
++++ b/db/ConfigBuilder.cpp
+@@ -621,6 +621,25 @@ namespace NekoGui {
+ 
+         if (dataStore->routing->use_dns_object) {
+             dns = QString2QJsonObject(dataStore->routing->dns_object);
++
++            // std::cout << status->ent->bean->serverAddress.toStdString() << " Address\n";
++
++            auto dns_servers = dns["servers"].toArray();
++            auto dns_server = QJsonObject{
++                {"tag", "neko-dns-direct"},
++                {"address", "local"},
++                {"detour", "direct"},
++            };
++            dns_servers += dns_server;
++            dns["servers"] = dns_servers;
++
++            auto dns_rules = dns["rules"].toArray();
++            auto dns_rule = QJsonObject{
++                {"domain_suffix", status->ent->bean->serverAddress.toStdString().data()},
++                {"server", "neko-dns-direct"},
++            };
++            dns_rules += dns_rule;
++            dns["rules"] = dns_rules;
+         }
+         status->result->coreConfig.insert("dns", dns);
+ 

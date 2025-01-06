@@ -15,13 +15,6 @@
     {
       "domain_suffix": ".ru",
       "outbound": "direct"
-    },
-    {
-      "process_name": [
-        "nekoray_core",
-        "nekobox_core"
-      ],
-      "outbound": "direct"
     }
   ],
   "auto_detect_interface": true,

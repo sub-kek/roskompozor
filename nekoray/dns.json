@@ -29,10 +29,6 @@
     {
       "domain_suffix": ".ru",
       "server": "dns-direct"
-    },
-    {
-      "process_name": ["nekoray_core", "nekobox_core"],
-      "server": "dns-direct"
     }
   ],
   "final": "cloudflare-tls"
